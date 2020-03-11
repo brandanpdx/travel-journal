@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 namespace TravelJournal.Models
 {
   public class Entry
@@ -22,7 +23,7 @@ namespace TravelJournal.Models
       Id = _instances.Count; 
     }
 
-    public static List<Item> GetAll()
+    public static List<Entry> GetAll()
     {
       if (_instances.Count == 0)
       {
@@ -34,7 +35,7 @@ namespace TravelJournal.Models
     {
       _instances.Clear();
     }
-    public static Item Find(int searchId)
+    public static Entry Find(int searchId)
     {
       return _instances[searchId - 1];
     }
