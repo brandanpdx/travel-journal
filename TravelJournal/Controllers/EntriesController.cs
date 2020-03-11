@@ -23,6 +23,18 @@ namespace TravelJournal.Controllers
       Entry newEntry = new Entry(location, date, days, travelPartners, journalEntry);
       return RedirectToAction("Index");
     }
+    [HttpPost("/entries/delete")]
+    public ActionResult DeleteAll()
+    {
+      Entry.ClearAll();
+      return View();
+    }
+    [HttpGet("/entries/{id}")]
+    public ActionResult Show(int id)
+    {
+      Entry foundEntry = Entry.Find(id);
+      return View(foundEntry);
+    }
 
   }
 }
