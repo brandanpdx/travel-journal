@@ -1,0 +1,18 @@
+@using TravelJournal.Models; 
+
+<h1>Travel Journal Entries</h1>
+@if (Model.Count == 0)
+{
+  <p>There are no entries yet</p>
+}
+<ul>
+  @foreach (Entry entry in Model)
+  {
+    <li><a href ='/entries/@entry.Id'>@entry.Location</a></li>
+  }
+</ul>
+<a href="/entries/new">Add a New Entry</a>
+
+<form action="/items/delete" method="post">
+  <button type="submit" name="button">Clear All Items</button>
+</form>
